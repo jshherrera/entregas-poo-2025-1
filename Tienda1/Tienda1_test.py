@@ -1,5 +1,5 @@
 import unittest
-from Tienda1 import Producto, obtener_producto
+from Tienda1.Tienda1 import Producto, obtener_producto
 
 class TestProducto(unittest.TestCase):
     """Clase para probar la clase Producto."""
