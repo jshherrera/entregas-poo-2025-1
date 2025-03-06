@@ -24,7 +24,7 @@ class Producto:
     """Clase para producto."""
 
     def __init__(self, nombre, precio, cantidad):
-        """Inicializa un producto con nombre, precio y cantidad."""
+        """indica un producto con nombre, precio y cantidad."""
         self.nombre = nombre
         self.precio = precio
         self.cantidad = cantidad
@@ -34,7 +34,7 @@ class Producto:
         return f"{self.nombre} | {self.cantidad} unidades | {self.precio} COP"
 
 def obtener_producto(num_producto):
-    """Obtiener los atributos de un producto."""
+    """Obtiene los atributos de un producto."""
     while True:
         nombre = input(f"Producto {num_producto}, ¿cuál es el nombre del producto? ")
         if not nombre.replace(" ", "").isalpha():

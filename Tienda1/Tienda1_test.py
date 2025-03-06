@@ -1,5 +1,5 @@
 import unittest
-from Tienda1.Tienda1 import Producto, obtener_producto
+from Tienda1 import Producto, obtener_producto
 
 class TestProducto(unittest.TestCase):
     """Clase para probar la clase Producto."""
@@ -20,8 +20,8 @@ class TestObtenerProducto(unittest.TestCase):
     """Clase para probar la función obtener_producto."""
 
     def test_obtener_producto(self):
-        """Prueba la obtención de un objeto Producto."""
-        # Simula la entrada del usuario
+        """Prueba."""
+        # Simulacion la entrada del usuario
         import io
         import sys
         entrada = io.StringIO("Pan\n2000\n10")
