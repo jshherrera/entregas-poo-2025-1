@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Título de práctica: Tienda 1
+Título de práctica: Tienda 2
 Aqui encontraremos un programa de una tienda
 
 en el programa nos podemos encontrar con un modulo que nos pedira
