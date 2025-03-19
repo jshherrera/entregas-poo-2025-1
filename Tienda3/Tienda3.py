@@ -1,16 +1,14 @@
 """
 Título de práctica: Tienda 3
-Aqui encontraremos un programa de una tienda
+Este es un programa que nos pedirá cuántos productos quiere el vendedor para su tienda,
+donde al final del programa nos dará un resumen de los productos ingresados.
 
-este es un programa que nos pedira cuantos productos quiere el vendedor quiere pára su tienda
-donde al final del programa nos dara un resumen de los productos ingresados.
-
-Autor: Johan sebastian herrera hoyos <jsherrerah1@acacdemia.usbbog.edu.co>
-Fecha: 2025-14-03
+Autor: Johan Sebastian Herrera Hoyos <jsherrerah1@academia.usbbog.edu.co>
+Fecha: 2025-03-14
 """
-def run():
-    """script entrypoint"""
+
 import sys
+
 
 class Producto:
     """Clase para representar un producto."""
@@ -18,8 +16,8 @@ class Producto:
     def __init__(self, nombre, precio, cantidad, descripcion, clasificacion):
         """Inicializa un producto con los atributos proporcionados."""
         self.nombre = nombre
-        self.precio = precio
-        self.cantidad = cantidad
+        self.precio = float(precio)
+        self.cantidad = int(cantidad)
         self.descripcion = descripcion
         self.clasificacion = clasificacion
 
@@ -38,6 +36,7 @@ class Producto:
         """Devuelve el valor total de mercancía de este producto en el inventario."""
         return self.precio * self.cantidad
 
+
 def obtener_producto(num_producto):
     """Obtiene los atributos de un producto del usuario."""
     while True:
@@ -46,7 +45,7 @@ def obtener_producto(num_producto):
             print("El nombre del producto debe contener solo letras.")
             continue
         try:
-            precio = int(input(f"¿Cuál es el precio de '{nombre}' en COP? "))
+            precio = float(input(f"¿Cuál es el precio de '{nombre}' en COP? "))
             if precio <= 0:
                 print("El precio del producto debe ser mayor que cero.")
                 continue
@@ -58,7 +57,8 @@ def obtener_producto(num_producto):
             clasificacion = input(f"¿Qué clasificación tiene '{nombre}'? ")
             return Producto(nombre, precio, cantidad, descripcion, clasificacion)
         except ValueError:
-            print("Valor inválido. Por favor, ingrese un número entero.")
+            print("Valor inválido. Por favor, ingrese un número válido.")
+
 
 def main():
     """Función principal del programa."""
@@ -81,23 +81,16 @@ def main():
 
     print("\nResumen:")
     print(
-        "| {:<15} | {:<10} | {:<8} | {:<20} | {:<17} | {:<15} | {:<15} |".format(
-            "Producto",
-            "Cantidad",
-            "Precio",
-            "Descripción",
-            "Clasificación",
-            "precio total",
-            "Precio x5 unidades"
+        "| {:<15} | {:<15} | {:<8} | {:<30} | {:<17} | {:<15} | {:<15} |".format(
+            "Producto", "Cantidad", "Precio", "Descripción", "Clasificación",
+            "Precio total", "Precio x5 unidades"
         )
     )
     for producto in productos:
         print(
-            "| {:<15} | {:<10} | {:<8} | {:<20} | {:<17} | {:<15} | {:<15} |".format(
-                producto.nombre,
-                f"{producto.cantidad} unidades",
-                f"{producto.precio} COP",
-                producto.descripcion,
+            "| {:<15} | {:<15} | {:<8} | {:<30} | {:<17} | {:<15} | {:<15} |".format(
+                producto.nombre, f"{producto.cantidad} unidades",
+                f"{producto.precio} COP", producto.descripcion,
                 producto.clasificacion,
                 f"{producto.calcular_inventario_precio()} COP",
                 f"{producto.calcular_precio(5)} COP"
@@ -112,12 +105,13 @@ def main():
             clasificaciones[producto.clasificacion] = [producto]
 
     print("\nPrecio por clasificación:")
-    print("| {:<15} | {:<6} |".format("Clasificación", "Precio"))
+    print("| {:<15} | {:<15} |".format("Clasificación", "Precio Total"))
     for clasificacion, productos in clasificaciones.items():
-        precio_total = sum(producto.precio for producto in productos)
-        print("| {:<15} | {:<6} |".format(clasificacion, f"{precio_total} COP"))
+        precio_total = sum(
+            producto.calcular_inventario_precio() for producto in productos
+        )
+        print("| {:<15} | {:<15} |".format(clasificacion, f"{precio_total} COP"))
+
 
 if __name__ == "__main__":
     main()
-
-
