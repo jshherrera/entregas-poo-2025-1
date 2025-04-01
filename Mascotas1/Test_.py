@@ -5,19 +5,19 @@ from Mascotas1 import Mascota, Perro, Gato
 
 class TestMascotas(unittest.TestCase):
     def setUp(self):
-        """Configura los datos de prueba antes de cada test."""
+        """Configuración los datos de prueba antes de cada test."""
         self.perro = Perro("Rex", 5, "Labrador")
         self.gato = Gato("Misu", 3, "Siames")
 
     def test_instanciacion(self):
-        """Verifica que las instancias de Perro y Gato sean correctas."""
+        """Verificacion que las instancias de Perro y Gato sean correctas."""
         self.assertIsInstance(self.perro, Perro)
         self.assertIsInstance(self.gato, Gato)
         self.assertIsInstance(self.perro, Mascota)
         self.assertIsInstance(self.gato, Mascota)
 
     def test_atributos(self):
-        """Verifica que los atributos se asignen correctamente."""
+        """Verifica que los atributos se asignen correctamente a cada mascota."""
         self.assertEqual(self.perro.nombre, "Rex")
         self.assertEqual(self.perro.edad, 5)
         self.assertEqual(self.perro.raza, "Labrador")
@@ -27,7 +27,7 @@ class TestMascotas(unittest.TestCase):
         self.assertEqual(self.gato.raza, "Siames")
 
     def test_fecha_ingreso(self):
-        """Verifica que la fecha de ingreso se genere correctamente."""
+        """Verifica que la fecha de ingreso se genere correctamente para cada mascota."""
         self.assertIsInstance(self.perro.fecha_ingreso, str)
         self.assertIsInstance(self.gato.fecha_ingreso, str)
         
@@ -35,7 +35,6 @@ class TestMascotas(unittest.TestCase):
         self.assertIsInstance(fecha_formateada, datetime)
 
     def test_obtener_datos(self):
-        """Verifica que el método obtener_datos retorne un diccionario válido."""
         datos_perro = self.perro.obtener_datos()
         datos_gato = self.gato.obtener_datos()
 
