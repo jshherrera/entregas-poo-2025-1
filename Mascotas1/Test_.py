@@ -7,7 +7,7 @@ class TestMascotas(unittest.TestCase):
     def setUp(self):
         """Configuración los datos de prueba antes de cada test."""
         self.perro = Perro("Rex", 5, "Labrador")
-        self.gato = Gato("Misu", 3, "Siames")
+        self.gato = Gato("luna", 3, "Siames")
 
     def test_instanciacion(self):
         """Verificacion que las instancias de Perro y Gato sean correctas."""
@@ -22,7 +22,7 @@ class TestMascotas(unittest.TestCase):
         self.assertEqual(self.perro.edad, 5)
         self.assertEqual(self.perro.raza, "Labrador")
         
-        self.assertEqual(self.gato.nombre, "Misu")
+        self.assertEqual(self.gato.nombre, "luna")
         self.assertEqual(self.gato.edad, 3)
         self.assertEqual(self.gato.raza, "Siames")
 
@@ -43,7 +43,7 @@ class TestMascotas(unittest.TestCase):
         self.assertEqual(datos_perro["Raza"], "Labrador")
         self.assertEqual(datos_perro["Clase"], "Perro")
 
-        self.assertEqual(datos_gato["Nombre"], "Misu")
+        self.assertEqual(datos_gato["Nombre"], "luna")
         self.assertEqual(datos_gato["Edad"], "3 años")
         self.assertEqual(datos_gato["Raza"], "Siames")
         self.assertEqual(datos_gato["Clase"], "Gato")
